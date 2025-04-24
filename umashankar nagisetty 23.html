@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umashankar Nagisetty - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            /* Added gradient */
+            background-image: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            /* Added gradient */
+            background-image: linear-gradient(to right, #4a148c, #1a237e);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            /* Added shadow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            /* Added rounded corners and shadow */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            overflow: hidden; /* to contain the rounded corners of the image */
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            /* Added gradient */
+            background-image: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+            border: 1px solid #b2ebf2;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style-position: inside;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            /* Added border */
+            border: 1px solid #d1d8e3;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            /* Added shadow */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            /* Added gradient */
+             background-image: linear-gradient(to bottom, #f0f4c3, #d4e157);
+        }
+
+        .project-img img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: var(--light-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            /* Added gradient */
+            background-image: linear-gradient(to right, #ffecb3, #ffe082);
+            border: 1px solid #ffe082;
+            color: #5e35b1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            /* Added shadow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            /* Added stronger shadow */
+            box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+            /* Added shadow */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            /* Added border */
+            border: 1px solid #e0e0e0;
+            /* Added gradient */
+            background-image: linear-gradient(to bottom, #f1f8e9, #dcedc8);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+
+        .timeline-content p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .cert-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            transition: transform 0.3s ease;
+            /* Added border */
+            border: 1px solid #e8f5e9;
+             /* Added gradient */
+            background-image: linear-gradient(to bottom, #e8f5e9, #a5d6a7);
+        }
+
+        .cert-card:hover{
+             transform: translateY(-5px);
+             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .cert-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .edu-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            /* Added border */
+            border: 1px solid #f0f0f0;
+            /* Added gradient */
+            background-image: linear-gradient(to bottom, #f0f4c3, #dcedc8);
+        }
+
+        .edu-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card p {
+            margin: 0.3rem 0;
+            color: var(--text-light);
+        }
+
+        .edu-card .date {
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease;
+            /* Added border */
+            border: 1px solid #e0f7fa;
+            /* Added gradient */
+            background-image: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            /* Added shadow */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .contact-card a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+             /* Added gradient */
+            background-image: linear-gradient(to right, #4a148c, #1a237e);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+             .about-image {
+                order: 0; /* Change order for small screens if needed */
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Umashankar Nagisetty</h1>
+            <p>Computer Science Engineer | Python & AWS Developer | Problem Solver</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Computer Science Engineering student at Lovely Professional University with expertise in C++, Java, Python, and cloud technologies. My projects demonstrate my ability to develop practical solutions using modern technologies and frameworks.</p>
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <ul>
+                                <li>C++</li>
+                                <li>Java</li>
+                                <li>C</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Web & Databases</h3>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Cloud & Tools</h3>
+                            <ul>
+                                 <li>AWS (Certified)</li>
+                                <li>S3</li>
+                                <li>Azure</li>
+                                <li>SageMaker/EC2</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-cloud-sun" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather Forecasting Website</h3>
+                        <p>A responsive weather forecasting platform that provides real-time weather updates with an intuitive user interface.</p>
+                        <div class="tech-used">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <a href="https://github.com/Umashankar59/weather-website" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                         <i class="fas fa-shopping-basket" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Basket Analyzer</h3>
+                        <p>Market basket analysis system that processes large datasets in the cloud to generate insights for potential recommendation systems.</p>
+                        <div class="tech-used">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">S3</span>
+                            <span class="tech-tag">Athena</span>
+                        </div>
+                        <a href="https://github.com/Umashankar59/basket-analyzer" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Ediglobe - Internship</h3>
+                        <p>Conducted market basket analysis on large datasets using Python and AWS services</p>
+                        <ul>
+                            <li>Implemented data storage in S3, querying with Athena, and processing with mixtend in SageMaker/EC2</li>
+                            <li>Developed a scalable solution that could be deployed as a real-time recommendation system</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications">
+                <div class="cert-card">
+                    <h3>AWS Certified Solutions Architect</h3>
+                    <p>Amazon Web Services</p>
+                    <p>Completed in 2024</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Object-Oriented C++: Inheritance and Encapsulation</h3>
+                    <p>Coursera</p>
+                    <p>Completed in 2024</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3>Mastering Data Structures & Algorithms using C and C++</h3>
+                    <p>Udemy</p>
+                    <p>Completed in 2024</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Microsoft Azure Administrator</h3>
+                    <p>Microsoft</p>
+                    <p>Completed in 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h3>Bachelor of Technology in Computer Science Engineering</h3>
+                    <p class="institution">Lovely Professional University, Punjab</p>
+                    <p class="date">August 2022 - Present</p>
+                    <p>CGPA: 6.5</p>
+                </div>
+
+                <div class="edu-card">
+                    <h3>Intermediate</h3>
+                    <p class="institution">Bhavishya College, Vijayawada</p>
+                    <p class="date">2022</p>
+                    <p>Percentage: 70%</p>
+                </div>
+
+                <div class="edu-card">
+                    <h3>Matriculation</h3>
+                    <p class="institution">Bhashyam High School, Vijayawada</p>
+                    <p class="date">2020</p>
+                    <p>Percentage: 98%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:umashankar.nagisetty@gmail.com">Email Me</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/umashankar-nagisetty-547637252/" target="_blank">LinkedIn</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Umashankar59" target="_blank">GitHub</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919515101483">+91-9515101483</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Umashankar Nagisetty. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
